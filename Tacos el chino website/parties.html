@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Plan a private party or special gathering at Tacos El Chino Cocina &amp; Bar in Midtown Reno."
+    />
+    <title>Private Parties | Tacos El Chino Cocina &amp; Bar</title>
+    <link rel="stylesheet" href="style.css?v=20260807-rounded-button-fill" />
+
+    <style>
+      .party-page {
+        --party-red: var(--red, #a72720);
+        --party-cream: var(--cream, #f7f0e3);
+        --party-ink: var(--ink, #211f1b);
+        --party-muted: #68635b;
+        --party-border: rgba(33, 31, 27, 0.24);
+        padding: clamp(8.5rem, 13vw, 11rem) 0 clamp(5rem, 9vw, 8rem);
+        color: var(--party-ink);
+      }
+
+      .party-page__inner {
+        width: min(1180px, calc(100% - 48px));
+        margin-inline: auto;
+      }
+
+      .party-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+        gap: clamp(3rem, 8vw, 7.5rem);
+        align-items: center;
+      }
+
+      .party-intro__image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 18px;
+      }
+
+      .party-eyebrow {
+        margin: 0 0 0.8rem;
+        color: var(--party-red);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .party-intro h1,
+      .party-form-copy h2 {
+        margin: 0;
+        color: var(--party-ink);
+        line-height: 1.04;
+      }
+
+      .party-intro h1 {
+        max-width: 12ch;
+        font-size: clamp(2.45rem, 5vw, 4.75rem);
+      }
+
+      .party-intro__copy > p:last-child {
+        max-width: 580px;
+        margin: 1.35rem 0 0;
+        color: var(--party-muted);
+        font-size: clamp(1rem, 1.4vw, 1.12rem);
+        line-height: 1.7;
+      }
+
+      .party-form-section {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
+        gap: clamp(3rem, 8vw, 7.5rem);
+        align-items: start;
+        margin-top: clamp(5rem, 10vw, 9rem);
+        padding: clamp(2rem, 5vw, 4.5rem);
+        border-radius: 22px;
+        background: var(--party-cream);
+      }
+
+      .party-form-copy {
+        position: sticky;
+        top: 9rem;
+      }
+
+      .party-form-copy h2 {
+        max-width: 10ch;
+        font-size: clamp(2rem, 3.5vw, 3.35rem);
+      }
+
+      .party-form-copy p {
+        margin: 1.25rem 0 0;
+        color: var(--party-muted);
+        line-height: 1.65;
+      }
+
+      .party-form {
+        display: grid;
+        gap: 1.25rem;
+      }
+
+      .party-form__field,
+      .party-form__fieldset {
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      .party-form__field label,
+      .party-form__fieldset legend,
+      .party-form__subfield label {
+        display: block;
+        margin: 0 0 0.48rem;
+        color: var(--party-ink);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .party-form__required {
+        color: var(--party-red);
+      }
+
+      .party-form input,
+      .party-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid var(--party-border);
+        border-radius: 10px;
+        background: #fff;
+        color: var(--party-ink);
+        font: inherit;
+        outline: none;
+        transition:
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .party-form input {
+        min-height: 52px;
+        padding: 0.75rem 0.9rem;
+      }
+
+      .party-form textarea {
+        min-height: 142px;
+        padding: 0.9rem;
+        resize: vertical;
+      }
+
+      .party-form input:focus,
+      .party-form textarea:focus {
+        border-color: var(--party-red);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--party-red) 18%, transparent);
+      }
+
+      .party-form input::placeholder,
+      .party-form textarea::placeholder {
+        color: #8b8780;
+        opacity: 1;
+      }
+
+      .party-form__date-time {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      .party-form__notice {
+        margin: 0;
+        color: var(--party-muted);
+        font-size: 0.85rem;
+        line-height: 1.55;
+      }
+
+      .party-form__submit {
+        width: 100%;
+        min-height: 54px;
+        padding: 0.9rem 1.25rem;
+        border: 1px solid var(--party-red);
+        border-radius: 999px;
+        background: var(--party-red);
+        color: #fff;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition:
+          background-color 160ms ease,
+          color 160ms ease,
+          transform 160ms ease;
+      }
+
+      .party-form__submit:hover {
+        background: transparent;
+        color: var(--party-red);
+        transform: translateY(-1px);
+      }
+
+      .party-form__submit:focus-visible {
+        outline: 3px solid color-mix(in srgb, var(--party-red) 28%, transparent);
+        outline-offset: 3px;
+      }
+
+      .party-form__honeypot {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+        clip: rect(0 0 0 0) !important;
+        clip-path: inset(50%) !important;
+        white-space: nowrap !important;
+      }
+
+      @media (max-width: 820px) {
+        .party-page {
+          padding-top: 7.5rem;
+        }
+
+        .party-intro,
+        .party-form-section {
+          grid-template-columns: 1fr;
+        }
+
+        .party-intro {
+          gap: 2rem;
+        }
+
+        .party-intro__image {
+          aspect-ratio: 4 / 3;
+        }
+
+        .party-intro h1,
+        .party-form-copy h2 {
+          max-width: none;
+        }
+
+        .party-form-section {
+          gap: 2.5rem;
+        }
+
+        .party-form-copy {
+          position: static;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .party-page__inner {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .party-form-section {
+          margin-inline: -2px;
+          padding: 1.5rem 1rem;
+          border-radius: 16px;
+        }
+
+        .party-form__date-time {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .party-form input,
+        .party-form textarea,
+        .party-form__submit {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" data-site-header>
+      <div class="header-brand-row">
+        <div class="header-balance">
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="site-menu-overlay"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <a
+          class="header-brand"
+          href="./index.html"
+          aria-label="Tacos El Chino Cocina &amp; Bar home."
+        >
+          <img
+            class="header-logo"
+            src="Images/logo.webp"
+            alt="Tacos El Chino Cocina &amp; Bar."
+          />
+        </a>
+
+        <div class="header-order-area">
+          <a
+            class="header-order"
+            href="https://onlineordering.edgeservpos.com/tacoselchino"
+          >
+            Order Online <span aria-hidden="true">›</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a href="./index.html">Home</a>
+        <a href="https://onlineordering.edgeservpos.com/tacoselchino/webmenu">Menu</a>
+        <a href="./menu-pdf.html">Menu PDF</a>
+        <a href="./parties.html" aria-current="page">Parties</a>
+        <a href="./our story.html">Our Story</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./gallery.html">Gallery</a>
+      </nav>
+    </header>
+
+    <div id="site-menu-overlay" class="menu-overlay" aria-hidden="true">
+      <button class="menu-close" type="button" aria-label="Close menu">
+        <span class="menu-close__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M6 6L18 18M18 6L6 18" />
+          </svg>
+        </span>
+      </button>
+
+      <nav class="overlay-nav" aria-label="Expanded navigation">
+        <a href="./index.html">Home</a>
+        <a href="https://onlineordering.edgeservpos.com/tacoselchino/webmenu">Menu</a>
+        <a href="./menu-pdf.html">Menu PDF</a>
+        <a href="./parties.html" aria-current="page">Parties</a>
+        <a href="./our story.html">Our Story</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./gallery.html">Gallery</a>
+        <a href="https://onlineordering.edgeservpos.com/tacoselchino">Order Online</a>
+      </nav>
+    </div>
+
+    <main class="party-page">
+      <div class="party-page__inner">
+        <section class="party-intro" aria-labelledby="party-page-title">
+          <img
+            class="party-intro__image"
+            src="Images/food image (14).webp"
+            alt="Food prepared at Tacos El Chino Cocina &amp; Bar for sharing."
+          />
+
+          <div class="party-intro__copy">
+            <p class="party-eyebrow">Private parties &amp; special events</p>
+            <h1 id="party-page-title">Make Every Gathering Special</h1>
+            <p>
+              From birthdays and baby showers to office events and other special
+              occasions, Tacos El Chino Cocina &amp; Bar is a welcoming place to
+              gather over Mexican food and drinks in Midtown Reno.
+            </p>
+          </div>
+        </section>
+
+        <section class="party-form-section" aria-labelledby="party-form-title">
+          <div class="party-form-copy">
+            <p class="party-eyebrow">Tell us about your event</p>
+            <h2 id="party-form-title">Plan Your Private Party</h2>
+            <p>
+              Fill out the form with your event details. We’ll do our best to
+              accommodate your preferred date, guest count and special requests
+              to help make your celebration unforgettable.
+            </p>
+          </div>
+
+          <!-- Replace YOUR_PARTY_FORM_ID below with the ID from your Formspree form. -->
+          <form
+            class="party-form"
+            action="https://formspree.io/f/YOUR_PARTY_FORM_ID"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="subject"
+              value="New Tacos El Chino party inquiry"
+            />
+
+            <div class="party-form__honeypot" aria-hidden="true">
+              <label for="party-company">Leave this field empty</label>
+              <input
+                id="party-company"
+                name="_gotcha"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="party-form__field">
+              <label for="party-name">
+                Name<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="party-name"
+                name="name"
+                type="text"
+                placeholder="Name"
+                autocomplete="name"
+                maxlength="100"
+                required
+              />
+            </div>
+
+            <div class="party-form__field">
+              <label for="party-phone">
+                Phone<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="party-phone"
+                name="phone"
+                type="tel"
+                placeholder="Phone"
+                autocomplete="tel"
+                maxlength="30"
+                required
+              />
+            </div>
+
+            <div class="party-form__field">
+              <label for="party-email">
+                Email<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="party-email"
+                name="email"
+                type="email"
+                placeholder="Email"
+                autocomplete="email"
+                maxlength="150"
+                required
+              />
+            </div>
+
+            <div class="party-form__field">
+              <label for="party-guests">
+                Number of Guests<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="party-guests"
+                name="guest_count"
+                type="number"
+                min="1"
+                max="500"
+                inputmode="numeric"
+                required
+              />
+            </div>
+
+            <fieldset class="party-form__fieldset">
+              <legend>
+                Date &amp; Time of Event<span class="party-form__required" aria-hidden="true">*</span>
+              </legend>
+              <div class="party-form__date-time">
+                <div class="party-form__subfield">
+                  <label for="party-date">Date</label>
+                  <input
+                    id="party-date"
+                    name="event_date"
+                    type="date"
+                    required
+                  />
+                </div>
+
+                <div class="party-form__subfield">
+                  <label for="party-time">Time</label>
+                  <input
+                    id="party-time"
+                    name="event_time"
+                    type="time"
+                    required
+                  />
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="party-form__field">
+              <label for="party-occasion">
+                Occasion<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="party-occasion"
+                name="occasion"
+                type="text"
+                placeholder="e.g. birthday, baby shower, office event, etc."
+                maxlength="150"
+                required
+              />
+            </div>
+
+            <div class="party-form__field">
+              <label for="party-budget">
+                Budget per Person<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="party-budget"
+                name="budget_per_person"
+                type="number"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="$"
+                required
+              />
+            </div>
+
+            <div class="party-form__field">
+              <label for="party-notes">
+                Special Requests / Notes<span class="party-form__required" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                id="party-notes"
+                name="special_requests"
+                placeholder="e.g. decorations, dietary restrictions, seating preferences, etc."
+                maxlength="2000"
+                required
+              ></textarea>
+            </div>
+
+            <p class="party-form__notice">
+              Submitting this form does not confirm a reservation. The restaurant
+              will contact you to confirm availability and event details.
+            </p>
+
+            <button class="party-form__submit" type="submit">
+              Submit Party Inquiry
+            </button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="elj-footer">
+      <div class="elj-footer__inner">
+        <div class="elj-footer__grid">
+          <div class="elj-footer__brand">
+            <a
+              class="elj-footer__logo-card"
+              href="./index.html"
+              aria-label="Tacos El Chino Cocina &amp; Bar home."
+            >
+              <img src="Images/logo.webp" alt="Tacos El Chino Cocina &amp; Bar." />
+            </a>
+
+            <div class="elj-footer__brand-message">
+              <svg
+                class="elj-footer__flower"
+                viewBox="0 0 42 64"
+                aria-hidden="true"
+              >
+                <path d="M21 24c1 16-3 27-9 38" />
+                <path d="M18 38c-7-5-11-3-13 1 6 2 10 2 13-1Z" />
+                <path d="M17 47c6-5 11-4 14 0-6 3-11 3-14 0Z" />
+                <circle cx="23" cy="17" r="3" />
+                <path d="M23 2v8M23 24v8M8 17h8M30 17h8M12 6l6 6M28 22l6 6M34 6l-6 6M18 22l-6 6" />
+              </svg>
+
+              <div>
+                <h2>Tacos, drinks and a place to gather in Midtown Reno.</h2>
+                <p>
+                  Visit Tacos El Chino Cocina &amp; Bar on South Virginia Street
+                  for tacos, burritos, margaritas, micheladas and more.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <nav
+            class="elj-footer__group elj-footer__group--divided"
+            aria-label="Explore"
+          >
+            <p class="elj-footer__label">Explore</p>
+            <a href="./index.html">Home</a>
+            <a href="./parties.html" aria-current="page">Parties</a>
+            <a href="./our story.html">Our Story</a>
+            <a href="./contact.html">Contact</a>
+          </nav>
+
+          <nav class="elj-footer__group" aria-label="Menu links">
+            <p class="elj-footer__label">Menu</p>
+            <a href="https://onlineordering.edgeservpos.com/tacoselchino/webmenu">Menu</a>
+            <a href="./menu-pdf.html">Menu PDF</a>
+            <a href="./gallery.html">Gallery</a>
+          </nav>
+
+          <div class="elj-footer__visit elj-footer__group--divided">
+            <p class="elj-footer__label">Visit Us</p>
+            <address>
+              1553 S Virginia St<br />
+              Reno, NV 89502
+            </address>
+            <a class="elj-footer__phone" href="tel:+17754624019">
+              (775) 462-4019
+            </a>
+            <a
+              class="elj-footer__order"
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=1553+S+Virginia+St%2C+Reno%2C+NV+89502"
+            >
+              <span>Get Directions</span>
+              <span class="elj-footer__order-arrow" aria-hidden="true">›</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="elj-footer__bottom">
+          <p>
+            © <span data-year>2026</span> Tacos El Chino Cocina &amp; Bar. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js?v=20260806-hover-fix"></script>
+    <script>
+      const partyDateInput = document.querySelector("#party-date");
+
+      if (partyDateInput) {
+        const today = new Date();
+        const localToday = new Date(
+          today.getTime() - today.getTimezoneOffset() * 60_000,
+        )
+          .toISOString()
+          .slice(0, 10);
+
+        partyDateInput.min = localToday;
+      }
+    </script>
+  </body>
+</html>
